@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.android.volley.Cache;
@@ -24,6 +25,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.begingeek.news.adapter.FeedListAdapter;
 import com.begingeek.news.app.AppController;
 import com.begingeek.news.model.News;
+import com.begingeek.news.utils.EndlessScrollListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,7 +42,8 @@ public class MainActivity extends AppCompatActivity
     private ListView listView;
     private FeedListAdapter listAdapter;
     private List<News> newsItems;
-    private String URL_FEED = "http://begingeek.com/api/v1/news?page=0";
+    private String URL_FEED = "http://begingeek.com/api/v1/news?page=";
+    private int PageNumber = 0;
 
 
     @Override
@@ -73,15 +76,32 @@ public class MainActivity extends AppCompatActivity
         listAdapter = new FeedListAdapter(this, newsItems);
         listView.setAdapter(listAdapter);
 
-        listView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
-            public void onScrollChange(View view, int i, int i1, int i2, int i3) {
+            public void onScrollStateChanged(AbsListView absListView, int i) {
 
             }
+            @Override
+            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                int lastItem = firstVisibleItem + visibleItemCount;
+                if(lastItem==totalItemCount)
+                {
+                    // you have reached end of list, load more data
+                    customLoadMoreDataFromApi(PageNumber);
+                    PageNumber++;
+                    Log.i("PageNumber", PageNumber+"");
+                }
+            }
         });
+    }
 
+    private boolean Loading(){
+        return true;
+    }
+
+    private void customLoadMoreDataFromApi(int page){
         Cache cache = AppController.getInstance().getRequestQueue().getCache();
-        Cache.Entry entry = cache.get(URL_FEED);
+        Cache.Entry entry = cache.get(URL_FEED+page);
         if(entry!=null){
             try {
                 String data = new String(entry.data, "UTF-8");
@@ -95,7 +115,7 @@ public class MainActivity extends AppCompatActivity
             }
         }else {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                    URL_FEED, null, new Response.Listener<JSONObject>() {
+                    URL_FEED+page, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     VolleyLog.d(TAG, "Response: " + response.toString());
