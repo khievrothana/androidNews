@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="9a73fede55309f63a4c2413fff284885c208a061">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_0ac73e96dcb0fd98891fd8aa6ff21acb8f1721fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\design\24.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -39,33 +48,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
-        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.1.1_28269751eb4fb540def2b22b6133d01dc8ea5b79\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
-        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.1.1_9ae1ff5acbbc6357210e638a20820dcf70ca6f83\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.0"
-        sha1="6f9da71cf903061dc8b07571f385af8811f45f84">
-        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_0ac73e96dcb0fd98891fd8aa6ff21acb8f1721fc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -81,6 +63,24 @@
         revision="24.0.0"
         sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
         <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.1.1_dbf6a06672fe33a5de4f77898140f9e3c2863d83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.1.1_28269751eb4fb540def2b22b6133d01dc8ea5b79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.1.1_9ae1ff5acbbc6357210e638a20820dcf70ca6f83\classes.dex" />
     </item>
     <item
         is-multidex="true"

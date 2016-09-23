@@ -61,11 +61,13 @@ public class FeedListAdapter extends BaseAdapter {
             imageLoader = AppController.getInstance().getImageLoader();
 
         TextView name = (TextView) view.findViewById(R.id.name);
+        TextView id = (TextView) view.findViewById(R.id.id);
         TextView dateCreated = (TextView) view.findViewById(R.id.dateCreated);
         FeedImageView feedImageView = (FeedImageView) view.findViewById(R.id.feedImage1);
 
         News item = feedItems.get(i);
         name.setText(item.getTitle());
+        id.setText(item.getId());
         dateCreated.setText(item.getDateCreated());
 
         // Chcek for empty status message

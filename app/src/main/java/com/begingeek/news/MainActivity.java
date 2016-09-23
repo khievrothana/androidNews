@@ -2,6 +2,7 @@ package com.begingeek.news;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,7 +19,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Cache;
 import com.android.volley.Request;
@@ -98,6 +102,7 @@ public class MainActivity extends AppCompatActivity
                 {
                     listView.addFooterView(loadinFooter);
                     Log.i("PageNumber", PageNumber+"");
+                    Log.i("TotalPages", TotalNumber+"");
                     customLoadMoreDataFromApi();
                     isLoading =true;
                 }
@@ -107,6 +112,15 @@ public class MainActivity extends AppCompatActivity
                 FirstVisibleItem = firstVisibleItem;
                 VisibleItemCount = visibleItemCount;
                 TotalItemCount = totalItemCount;
+            }
+        });
+
+        listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               String strId = ((TextView)view.findViewById(R.id.id)).getText().toString();
+                Intent i = new Intent(getApplicationContext(), DetailActivity.class);
+                i.putExtra("strId", strId);
+                startActivity(i);
             }
         });
 
