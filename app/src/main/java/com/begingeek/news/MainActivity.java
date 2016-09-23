@@ -1,9 +1,11 @@
 package com.begingeek.news;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -40,10 +42,14 @@ public class MainActivity extends AppCompatActivity
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private ListView listView;
+    private View loadinFooter;
     private FeedListAdapter listAdapter;
     private List<News> newsItems;
     private String URL_FEED = "http://begingeek.com/api/v1/news?page=";
     private int PageNumber = 0;
+    private int TotalNumber = 1;
+    private int FirstVisibleItem, VisibleItemCount, TotalItemCount;
+    private boolean isLoading = false;
 
 
     @Override
@@ -74,34 +80,35 @@ public class MainActivity extends AppCompatActivity
         listView = (ListView) findViewById(R.id.list);
         newsItems = new ArrayList<News>();
         listAdapter = new FeedListAdapter(this, newsItems);
+        loadinFooter = ((LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.progress_layout, null, false);
         listView.setAdapter(listAdapter);
+        customLoadMoreDataFromApi();
+        PageNumber++;
 
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView absListView, int i) {
-
+                int lastItem = FirstVisibleItem + VisibleItemCount;
+                if(lastItem==TotalItemCount && !isLoading && PageNumber < TotalNumber)
+                {
+                    listView.addFooterView(loadinFooter);
+                    Log.i("PageNumber", PageNumber+"");
+                    customLoadMoreDataFromApi();
+                    isLoading =true;
+                }
             }
             @Override
             public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                int lastItem = firstVisibleItem + visibleItemCount;
-                if(lastItem==totalItemCount)
-                {
-                    // you have reached end of list, load more data
-                    customLoadMoreDataFromApi(PageNumber);
-                    PageNumber++;
-                    Log.i("PageNumber", PageNumber+"");
-                }
+                FirstVisibleItem = firstVisibleItem;
+                VisibleItemCount = visibleItemCount;
+                TotalItemCount = totalItemCount;
             }
         });
     }
 
-    private boolean Loading(){
-        return true;
-    }
-
-    private void customLoadMoreDataFromApi(int page){
+    private void customLoadMoreDataFromApi(){
         Cache cache = AppController.getInstance().getRequestQueue().getCache();
-        Cache.Entry entry = cache.get(URL_FEED+page);
+        Cache.Entry entry = cache.get(URL_FEED+PageNumber);
         if(entry!=null){
             try {
                 String data = new String(entry.data, "UTF-8");
@@ -115,7 +122,7 @@ public class MainActivity extends AppCompatActivity
             }
         }else {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                    URL_FEED+page, null, new Response.Listener<JSONObject>() {
+                    URL_FEED+PageNumber, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     VolleyLog.d(TAG, "Response: " + response.toString());
@@ -135,8 +142,10 @@ public class MainActivity extends AppCompatActivity
     private void parseJsonFeed(JSONObject response) {
         try{
             boolean isError = response.getBoolean("IsError");
-            if(isError!=true){
-                JSONArray news = response.getJSONObject("Data").getJSONArray("News");
+            if(!isError){
+                JSONObject data = response.getJSONObject("Data");
+                TotalNumber = data.getInt("Pages");
+                JSONArray news = data.getJSONArray("News");
                 for (int i =0;i<news.length();i++){
                     JSONObject newsObj = news.getJSONObject(i);
                     String Id = newsObj.getString("Id");
@@ -146,7 +155,12 @@ public class MainActivity extends AppCompatActivity
 
                     News item = new News(Id,Title,FeaturImage,DateCreated);
                     newsItems.add(item);
+                }
 
+                if(isLoading){
+                    isLoading = false;
+                    listView.removeFooterView(loadinFooter);
+                    PageNumber++;
                 }
                 listAdapter.notifyDataSetChanged();
             }

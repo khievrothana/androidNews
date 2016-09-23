@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.1.1_eaa23dea2493e6a65256e49b08f87cabb53110fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\design\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="e195bd694d5389acfba27ff4fdfa64c4c65b2c05">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.1.1_e42b3c95e7146bd8e511ba777ba3f3682d957e66\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="d1a81f388217c86505db1d1dfd021c98fce4195d">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_4ad848a32a4ed8b66f91b436536a9144496802c2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="787871951412550519b0222aba3c9df4cea49875">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.1.1_321bf5e6d96b1d81753d613c522fa86bb06990f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.1.1_28269751eb4fb540def2b22b6133d01dc8ea5b79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.1.1_9ae1ff5acbbc6357210e638a20820dcf70ca6f83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="6f9da71cf903061dc8b07571f385af8811f45f84">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_0ac73e96dcb0fd98891fd8aa6ff21acb8f1721fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_234255de4f2de84ae825a61ee15fba7d6c531070\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\libs\internal_impl-24.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.1.1_dbf6a06672fe33a5de4f77898140f9e3c2863d83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.1.1_ce7940b3e78bf1e91aa025539597238dc290c8da\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\androidSDK\Sdk\extras\android\m2repository\com\android\support\support-annotations\24.1.1\support-annotations-24.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="C:\Users\DELL\Desktop\Android\androidNews\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.1.1_8e433a8de9d3b3f6f2f1f6dbadca46ebfe99e363\classes.dex" />
+    </item>
+
+</items>
