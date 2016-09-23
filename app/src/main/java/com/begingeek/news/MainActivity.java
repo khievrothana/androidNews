@@ -1,9 +1,11 @@
 package com.begingeek.news;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity
     private int TotalNumber = 1;
     private int FirstVisibleItem, VisibleItemCount, TotalItemCount;
     private boolean isLoading = false;
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    Activity activity = this;
 
 
     @Override
@@ -78,12 +82,13 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         listView = (ListView) findViewById(R.id.list);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
         newsItems = new ArrayList<News>();
         listAdapter = new FeedListAdapter(this, newsItems);
         loadinFooter = ((LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.progress_layout, null, false);
         listView.setAdapter(listAdapter);
         customLoadMoreDataFromApi();
-        PageNumber++;
+        PageNumber=1;
 
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
@@ -102,6 +107,19 @@ public class MainActivity extends AppCompatActivity
                 FirstVisibleItem = firstVisibleItem;
                 VisibleItemCount = visibleItemCount;
                 TotalItemCount = totalItemCount;
+            }
+        });
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                newsItems = new ArrayList<News>();
+                listAdapter = new FeedListAdapter(activity, newsItems);
+                listView.setAdapter(listAdapter);
+                PageNumber=0;
+                customLoadMoreDataFromApi();
+                PageNumber++;
+                mSwipeRefreshLayout.setRefreshing(false);
             }
         });
     }
@@ -161,6 +179,7 @@ public class MainActivity extends AppCompatActivity
                     isLoading = false;
                     listView.removeFooterView(loadinFooter);
                     PageNumber++;
+                    mSwipeRefreshLayout.setRefreshing(false);
                 }
                 listAdapter.notifyDataSetChanged();
             }
